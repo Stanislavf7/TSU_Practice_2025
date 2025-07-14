@@ -1,39 +1,39 @@
 #container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	min-width: 600px;
-	gap: 8px
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 600px;
+  gap: 8px
 }
 
-#boxSettings{
-	display: flex;
-	flex-direction: column;
-	align-items: flex-end;
-	width: 250px;
-	gap: 8px;
+#boxSettings {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 250px;
+  gap: 8px;
 }
 
-#myButton{
-	border-radius: 8px;
-	width: 176px;
+#myButton {
+  border-radius: 8px;
+  width: 176px;
 }
 
-#sep{
-	width: 250px;
-	margin: 12px 0;
-	border: 1px solid lightgrey;
+#sep {
+  width: 250px;
+  margin: 12px 0;
+  border: 1px solid lightgrey;
 }
 
-#myBox{
-	width: 100px;
-	height: 100px;
-	background-color: lightblue;
-	border: 1px solid black;
-	border-radius: 8px;
+#myBox {
+  width: 100px;
+  height: 100px;
+  background-color: lightblue;
+  border: 1px solid black;
+  border-radius: 8px;
 }
 
-input[type='number']::-webkit-inner-spin-button, 
+input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-} 
+  -webkit-appearance: none;
+}

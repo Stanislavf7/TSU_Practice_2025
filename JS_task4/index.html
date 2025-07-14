@@ -1,29 +1,32 @@
 <!doctype html>
 <html lang="ru">
-	<head>
-		<meta charset="UTF-8" />
-		<title>Task 4</title>
-		<link rel="stylesheet" href="styles.css" />
-		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-		<script src="script.js" defer></script>
-	</head>
-	<body onload="buildChart()">
-		<div id="container">
-			<p id="title">График нагруженности процессора</p>
-			<p id="subtitle">(Данные обновляются раз в 5 секунд)</p>
-			<div id="chartBox">
-				<canvas id="myChart"></canvas>
-			</div>
-			<div id="stats">
-				<div class="stat">
-					<p>Число запросов:</p>
-					<p id="reqCount"></p>
-				</div>
-				<div class="stat">
-					<p>Успешные запросы:</p>
-					<p id="reqAcc"></p>
-				</div>
-			</div>
-		</div>
-	</body>
-</html> 
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Task 4</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js" defer></script>
+</head>
+
+<body onload="buildChart()">
+  <div id="container">
+    <p id="title">График нагруженности процессора</p>
+    <p id="subtitle">(Данные обновляются раз в 5 секунд)</p>
+    <div id="chartBox">
+      <canvas id="myChart"></canvas>
+    </div>
+    <div id="stats">
+      <div class="stat">
+        <p>Число запросов:</p>
+        <p id="reqCount"></p>
+      </div>
+      <div class="stat">
+        <p>Успешные запросы:</p>
+        <p id="reqAcc"></p>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

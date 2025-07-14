@@ -118,4 +118,4 @@ const myForm = document.getElementById("myForm");
 const resMsg = document.getElementById("submitResult");
 
 myForm.addEventListener("input", checkRequired);
-myForm.addEventListener("submit", mySubmit);
+myForm.addEventListener("submit", mySubmit); 

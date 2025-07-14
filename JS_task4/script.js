@@ -54,4 +54,4 @@ function buildChart() {
 		}
 	});
 	getLoad();
-}
+} 

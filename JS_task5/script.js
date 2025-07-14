@@ -145,4 +145,4 @@ function createTable() {
 $(document).ready(() => {
 	addEvents();
 	createTable();
-});
+}); 

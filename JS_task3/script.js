@@ -92,4 +92,4 @@ function createTable(data, lBound, uBound) {
 	tableHTML += `</table>`;
 	if (counter > 0) return tableHTML;
 	return 0;
-}
+} 

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Task 2</title>
+		<link rel="stylesheet" href="styles.css" />
+		<script
+			src="https://api-maps.yandex.ru/2.1/?apikey=f4d85ce0-1db5-4715-9f78-2307c635f57d&lang=ru_RU"
+			type="text/javascript"></script>
+		<script src="script.js" type="text/javascript" defer></script>
+	</head>
+	<body>
+		<div id="container">
+			<form id="myForm">
+				<input type="text" id="name" name="ФИО" class="myInput" placeholder="ФИО" required/>
+				<input type="text" id="phone" name="Телефон" class="myInput" placeholder="Телефон" required/>
+				<input type="email" id="email" name="Email" class="myInput" placeholder="Email" />
+				<div id="map"></div>
+				<textarea
+					id="comment"
+					name="Комментарий"
+					class="myInput"
+					placeholder="Комментарий к заказу (макс. 500 символов)"
+					rows="10"
+					maxlength="500"></textarea>
+				<button type="submit" id="myButton" disabled>Отправить</button>
+			</form>
+			<div id="submitResult"></div>
+		</div>
+	</body>
+</html>

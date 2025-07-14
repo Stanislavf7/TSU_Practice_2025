@@ -1,0 +1,58 @@
+#container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-width: 600px;
+	gap: 8px
+}
+
+#tableParams{
+	display: flex;
+	justify-content: center;
+	padding: 12px 0;
+	gap: 12px
+}
+
+input[type='number']{
+	width: 100px;
+}
+
+#tableBody{
+	width: 800px;
+}
+
+.error{
+	text-align: center;
+	color: indianred;
+}
+
+table{
+	border: 1px solid #eee;
+	border-spacing: 0;
+	table-layout: fixed;
+	width: 100%;
+	margin-bottom: 20px;
+}
+table th {
+	font-weight: bold;
+	padding: 5px 10px;
+	background: #efefef;
+	border: 1px solid #dddddd;
+	text-align: left;
+}
+table td{
+	padding: 5px 10px;
+	border: 1px solid #eee;
+	text-align: left;
+}
+table tbody tr:nth-child(odd){
+	background: #fff;
+}
+table tbody tr:nth-child(even){
+	background: #F7F7F7;
+}
+
+input[type='number']::-webkit-inner-spin-button, 
+input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}

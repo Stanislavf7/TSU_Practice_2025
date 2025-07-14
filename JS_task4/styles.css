@@ -1,0 +1,35 @@
+#container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-width: 600px;
+	gap: 8px
+}
+
+p {
+	margin: 0
+}
+
+#title {
+	font-size: larger;
+	font-weight: bolder
+}
+
+#subtitle{
+	font-style: italic;
+}
+
+#chartBox, #stats {
+	min-width: 900px;
+	max-width: 900px;
+}
+
+#myChart {
+	width: 100%
+}
+
+#stats p{
+	text-align: start;
+	display: inline;
+}
+

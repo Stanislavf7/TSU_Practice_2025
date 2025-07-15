@@ -1,33 +1,3 @@
-// task 1 - создать таблицу - complete
-// task 2 - заполнить таблицу - complete
-// task 3 - запустить фильтры - complete
-// task 4 - создать стиль - complete
-// task 5 - получить данные с их сервера - CORS-защита))
-// task 6 - отобразить данные с их сервера
-
-const testRes = [
-  {
-    price: 9685,
-    quantity: 3,
-    name: "Бумага для принтера"
-  },
-  {
-    price: 13896,
-    quantity: 5,
-    name: "Шкаф книжный"
-  },
-  {
-    price: 14739,
-    quantity: 5,
-    name: "Канцелярский набор"
-  }
-];
-
-function getData1() {
-  const data = JSON.parse(JSON.stringify(testRes));
-  return data;
-}
-
 async function getData() {
   const url = "http://exercise.develop.maximaster.ru/service/products/";
   const response = await fetch(url);
@@ -35,7 +5,6 @@ async function getData() {
     alert("Ошибка HTTP: " + response.status);
   } else {
     const data = await response.json();
-    console.log("data: ", data);
     return data;
   }
 }
@@ -43,14 +12,14 @@ async function getData() {
 let data = null;
 
 async function fillTable() {
-  if (!data) data = await getData1();
+  if (!data) data = await getData();
 
   const tableBody = document.getElementById("tableBody");
   const lowerBound = document.getElementById("priceFrom").value || 0;
   const upperBound = document.getElementById("priceTo").value || 99999;
 
   tableBody.className = "";
-  if (lowerBound > upperBound || (lowerBound || upperBound) < 0) {
+  if (lowerBound > upperBound || lowerBound < 0 || upperBound < 0) {
     tableBody.className = "error";
     tableBody.innerText = "Неправильные значения фильтров!";
   } else {

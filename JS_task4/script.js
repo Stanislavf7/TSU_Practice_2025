@@ -5,16 +5,19 @@ let reqCountValue = 0;
 const reqAcc = document.getElementById("reqAcc");
 let reqAccValue = 0;
 
-
-function simulateWorkload() {
-  let load = 0;
-  let rnd = Math.random();
-  if (rnd > 0.05) load = Math.floor(Math.random() * 50) + 20;
-  return load;
+async function getLoad() {
+  const url = "http://exercise.develop.maximaster.ru/service/cpu/";
+  const response = await fetch(url);
+  if (!response.ok) {
+    return 0;
+  } else {
+    const data = await response.json();
+    return data;
+  }
 }
 
-function getLoad() {
-  let load = simulateWorkload();
+async function fillChart() {
+  let load = await getLoad();
   let lastValue = myChart.data.datasets[0].data.slice(-1)[0] || 0;
   reqCountValue += 1;
 
@@ -30,7 +33,7 @@ function getLoad() {
   reqAcc.innerText = (reqAccValue / reqCountValue * 100).toFixed(2).toString() + "%";
   myChart.update();
 
-  setTimeout(getLoad, 5000);
+  setTimeout(fillChart, 5000);
 }
 
 function buildChart() {
@@ -53,5 +56,5 @@ function buildChart() {
       }
     }
   });
-  getLoad();
+  fillChart();
 } 

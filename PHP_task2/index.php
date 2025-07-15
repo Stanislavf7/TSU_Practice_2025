@@ -31,6 +31,7 @@
       }
       ?>
     </div>
+    <div id="sep"></div>
     <form method="POST" id="myForm">
       <input type="text" id="username" name="username" placeholder="Ваше имя" />
       <textarea id="message" name="message" placeholder="Ваш комментарий" required></textarea>

@@ -2,11 +2,6 @@ let row = window.localStorage.getItem("row") || 3,
   col = window.localStorage.getItem("col") || 3,
   tableData = JSON.parse(window.localStorage.getItem("data") || "{}");
 
-function idk() {
-  alert("you press the button");
-  return true;
-}
-
 function checkBeforeDelete(isRow) {
   let dataChek = true;
   const dataClass = isRow ? `.myCell.r${row}` : `.myCell.c${col}`;
@@ -75,7 +70,7 @@ function addTableElements(isRow) {
 
 function changeTableSize(rowChange, colChange) {
   if ((row == 1 && rowChange < 0) || (col == 1 && colChange < 0)) {
-    alert("you can't delete whole table");
+    alert("Вы не можете удалить последнюю строку или столбец");
     return;
   }
 

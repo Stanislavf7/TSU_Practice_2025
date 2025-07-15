@@ -12,3 +12,42 @@
   gap: 8px;
   align-items: center;
 }
+
+#rowBtn {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+#colBtn {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+#rowBtn button,
+#colBtn button {
+  width: 25px;
+}
+
+table {
+  border: 2px solid #222222cc;
+  border-spacing: 0;
+  table-layout: fixed;
+  width: fit-content;
+}
+
+
+table td {
+  border: 1px solid #222222cc;
+  border-spacing: 0;
+  width: 80px;
+  height: 25px;
+  padding: 1px;
+  text-align: left;
+}
+
+input {
+  width: 80px;
+  box-sizing: border-box;
+}

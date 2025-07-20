@@ -1,24 +1,31 @@
-function changeBox(isColorChange) {
-  const box = document.getElementById('myBox');
+const box = document.getElementById('myBox');
+const widthInp = document.getElementById('box_X');
+const heightInp = document.getElementById('box_Y');
+const button = document.getElementById('myButton');
 
-  let width = document.getElementById('box_X').value;
-  if (!width || width < 0) {
-    document.getElementById('box_X').value = null;
-    width = 100;
-  }
-  let height = document.getElementById('box_Y').value;
-  if (!height || height < 0) {
-    document.getElementById('box_Y').value = null;
-    height = 100;
-  }
-  let bgColor = box.style.backgroundColor;
 
-  const newStyle = {
-    width: `${width}px`,
-    height: `${height}px`,
-    backgroundColor: isColorChange ? getRandomColor() : bgColor
-  };
-  Object.assign(box.style, newStyle);
+function changeSize(arg, value) {
+  if (!value || value < 0) {
+    value = 100;
+    if (arg === 'w') {
+      widthInp.value = '';
+    } else {
+      heightInp.value = '';
+    }
+  }
+  if (arg === 'w') {
+    box.style.width = value + 'px';
+  } else {
+    box.style.height = value + 'px';
+  }
+
+}
+
+widthInp.addEventListener('input', () => changeSize('w', widthInp.value));
+heightInp.addEventListener('input', () => changeSize('h', heightInp.value));
+
+function changeColor() {
+  box.style.backgroundColor = getRandomColor();
 }
 
 function getRandomColor() {
@@ -28,4 +35,8 @@ function getRandomColor() {
     color += letters[Math.floor(Math.random() * 16)];
   }
   return color;
-} 
+}
+
+button.addEventListener('click', () => {
+  changeColor();
+});

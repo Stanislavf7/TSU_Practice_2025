@@ -71,6 +71,7 @@ function validateData(formData) {
     let regex = /^$/;
 
     switch (name) {
+
       case "Телефон":
         regex = /^\d+$/;
         if (!regex.test(value)) errors.push(`Поле "${name}" должно состоять только из цифр!`);
@@ -81,13 +82,19 @@ function validateData(formData) {
         if (value) if (!regex.test(value)) errors.push(`Поле "${name}" содержит неправильный адрес!`);
         break;
 
+      case "Комментарий":
+        if (value.length > 500) {
+          errors.push(`Поле "${name}" не может содержать более 500 символов!`);
+        }
+        break;
+
       default:
         break;
     }
   });
 
   if (!myMap.geoObjects.getLength()) {
-    errors.push(`Выберете адрес доставки!`);
+    errors.push(`Выберите адрес доставки!`);
   }
 
   return errors;
@@ -109,9 +116,10 @@ function mySubmit(event) {
 
 function checkRequired(event) {
   const formNode = event.target.form;
-  const requiredFields = myForm.querySelectorAll("input[required]");
+  const fioInput = formNode.querySelector('input[name="ФИО"]');
+  const phoneInput = formNode.querySelector('input[name="Телефон"]');
 
-  const fillFlag = Array.from(requiredFields).every((input) => input.value.trim() !== "");
+  const fillFlag = fioInput.value.trim() !== "" && phoneInput.value.trim() !== "";
   formNode.querySelector("button").disabled = !fillFlag;
 }
 const myForm = document.getElementById("myForm");

@@ -1,3 +1,6 @@
+let data = null;
+const button = document.getElementById("update");
+
 async function getData() {
   const url = "http://exercise.develop.maximaster.ru/service/products/";
   const response = await fetch(url);
@@ -9,26 +12,38 @@ async function getData() {
   }
 }
 
-let data = null;
+button.addEventListener("click", async () => {
+  data = await getData();
+  fillTable();
+})
 
-async function fillTable() {
-  if (!data) data = await getData();
+const lowerBound = document.getElementById("priceFrom")
+const upperBound = document.getElementById("priceTo")
 
-  const tableBody = document.getElementById("tableBody");
-  const lowerBound = document.getElementById("priceFrom").value || 0;
-  const upperBound = document.getElementById("priceTo").value || 99999;
+function fillTable() {
 
-  tableBody.className = "";
-  if (lowerBound > upperBound || lowerBound < 0 || upperBound < 0) {
-    tableBody.className = "error";
-    tableBody.innerText = "Неправильные значения фильтров!";
-  } else {
-    let table = createTable(data, lowerBound, upperBound);
-    if (table) tableBody.innerHTML = table;
-    else {
+  if (data) {
+
+    const tableBody = document.getElementById("tableBody");
+    const LB = isNaN(parseInt(lowerBound.value)) ? 0 : parseInt(lowerBound.value);
+    const UB = isNaN(parseInt(upperBound.value)) ? 99999 : parseInt(upperBound.value);
+
+    tableBody.className = "";
+    if ((LB > UB) || (LB < 0) || (UB < 0)) {
       tableBody.className = "error";
-      tableBody.innerText = "Нет данных, попадающих под условие фильтра!";
+      tableBody.innerText = "Неправильные значения фильтров!";
+    } else {
+
+      let table = createTable(data, LB, UB);
+      if (table) tableBody.innerHTML = table;
+      else {
+        tableBody.className = "error";
+        tableBody.innerText = "Нет данных, попадающих под условие фильтра!";
+      }
     }
+  } else {
+    tableBody.className = "error";
+    tableBody.innerText = "Данные не загружены! Нажмите кнопку 'Обновить'.";
   }
 }
 
@@ -61,4 +76,8 @@ function createTable(data, lBound, uBound) {
   tableHTML += `</table>`;
   if (counter > 0) return tableHTML;
   return 0;
-} 
+}
+
+lowerBound.addEventListener("input", fillTable);
+upperBound.addEventListener("input", fillTable);
+

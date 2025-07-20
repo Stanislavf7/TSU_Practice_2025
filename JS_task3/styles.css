@@ -6,6 +6,13 @@
   gap: 8px
 }
 
+#myMessage {
+  text-align: center;
+  color: #555;
+  font-size: 14px;
+  padding-bottom: 12px;
+}
+
 #tableParams {
   display: flex;
   justify-content: center;

@@ -51,3 +51,8 @@ input {
   width: 80px;
   box-sizing: border-box;
 }
+
+input:not([readonly]) {
+  background-color: #e6f3ff; 
+  border: 2px solid #007bff;
+}

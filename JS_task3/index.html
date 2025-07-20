@@ -5,16 +5,20 @@
   <meta charset="UTF-8" />
   <title>Task 3</title>
   <link rel="stylesheet" href="styles.css" />
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </head>
 
 <body>
   <div id="container">
     <div id="myTable">
+      <div id="myMessage">
+        Чтобы загрузить данные, нажмите кнопку "Обновить".<br>
+        Чтобы данные отображались в таблице, введите диапазон цен.<br>
+      </div>
       <div id="tableParams">
         <label>Цена от: <input type="number" placeholder="0" id="priceFrom"></label>
         <label>до: <input type="number" placeholder="99999" id="priceTo"></label>
-        <button onclick="fillTable()">Обновить</button>
+        <button id="update">Обновить</button>
       </div>
       <div id="tableBody"></div>
     </div>

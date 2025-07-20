@@ -104,19 +104,13 @@ function addEvents() {
   $("#colDel").on("click", () => changeTableSize(0, -1));
   $("#rowPlus").on("click", () => changeTableSize(1, 0));
   $("#rowDel").on("click", () => changeTableSize(-1, 0));
-  $("#myTable").on("click", "input", () => {
-    console.log("event click");
-  });
+
   $("#myTable").on("dblclick", "input", function () {
-    console.log("event dblclick");
     this.readOnly = false;
   });
   $("#myTable").on("blur", "input", function () {
     this.readOnly = true;
-    console.log(tableData);
-    console.log(tableData[this.id]);
     tableData[this.id] = this.value;
-    console.log(tableData[this.id]);
     window.localStorage.setItem("data", JSON.stringify(tableData));
   });
 }
